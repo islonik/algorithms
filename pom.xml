@@ -12,6 +12,7 @@
 	
 	<modules>
         <module>Algorithms.Part 1</module>
+        <module>Algorithms.Part 2</module>
     </modules>
 	
 	<developers>

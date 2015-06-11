@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+        <groupId>org.algorithms</groupId>
+        <artifactId>root</artifactId>
+        <version>1.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <groupId>org.algorithms.coursera</groupId>
+    <artifactId>Algorithms.Part_2</artifactId>
+	<name>Algorithms.Part 2</name>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<description>https://www.coursera.org/princeton</description>
+    
+	<modules>
+        <module>WordNet</module>
+        <module>SeamCarving</module>
+        <module>BaseballElimination</module>
+        <module>Boggle</module>
+        <module>Burrows-Wheeler</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.algs4</groupId>
+            <artifactId>algs4</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../libs/algs4.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.stdlib</groupId>
+            <artifactId>stdlib</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../libs/stdlib.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- mvn clean test site -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.4</version>
+                <configuration>
+                    <reportPlugins>
+                        <plugin>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>findbugs-maven-plugin</artifactId>
+							<configuration>
+								<includeFilterFile>findbugs.xml</includeFilterFile>
+							</configuration>
+                        </plugin>
+                    </reportPlugins>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <reporting>
+        <plugins>
+            <!-- checkstyle -->
+            <!-- mvn clean checkstyle:checkstyle -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.14</version>
+                <configuration>
+                    <configLocation>checkstyle.xml</configLocation>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
+</project>
